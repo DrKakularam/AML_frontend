@@ -1,6 +1,6 @@
 import streamlit as st
-# import pandas as pd
-# import numpy as np
+import pandas as pd
+
 
 st.title("Welcome to Human Leukemia Cytomorphology Dataset classification")
 
@@ -19,6 +19,19 @@ st.write("""- (1) normal patients (control)
 - (4) AML with CBFB::MYH11 fusion without NPM1 mutation (CBFB_MYH11)
 - (5) AML with RUNX1::RUNX1T1 fusion (RUNX1_RUNX1T1)""")
 
+patient_count={'CBFB_MYH11': 37,
+ 'NPM1': 36,
+ 'PML_RARA': 24,
+ 'RUNX1_RUNX1T1': 32,
+ 'control': 60}
+sample_count={'CBFB_MYH11': 17212,
+ 'NPM1': 17710,
+ 'PML_RARA': 11584,
+ 'RUNX1_RUNX1T1': 14403,
+ 'control': 20305}
+df=pd.DataFrame([sample_count,patient_count]).T
+df.columns=["Sample_Count", "Patient_Count"]
+df.Sample_Count.plot(kind="bar")
 
 st.markdown("""### Further Information from the kaggle""")
 st.write("""A total of 189 peripheral blood smears from the Munich Leukemia Laboratory (MLL) database from
