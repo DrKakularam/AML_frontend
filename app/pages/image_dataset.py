@@ -42,7 +42,7 @@ patient_groups = {
 patient_id=st.selectbox("Select a Patient",(patient_groups[aml_class]))
 image_num = st.slider('Select an image', 0,500)
 
-api_url = "http://localhost:8000/image_dataset/"
+api_url = "https://aml-classification-om6vg5eioq-ew.a.run.app/image_dataset/"
 image_path= f"aml_data/{aml_class}/{patient_id}_image_{image_num}.tif"
 response=requests.get(api_url, params={"image_path":image_path})
 prediction=response.json()["prediction"][0]

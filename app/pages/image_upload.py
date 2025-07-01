@@ -15,7 +15,7 @@ if uploaded_file is not None:
         # Prepare files payload for API
         files = {"image": uploaded_file.getvalue()}
         # Replace the URL below with your actual API endpoint
-        api_url = "http://localhost:8000/upload_image/"
+        api_url = "https://aml-classification-om6vg5eioq-ew.a.run.app/upload_image/"
 
         # Make the POST request
         response = requests.post(api_url, files={"image": (uploaded_file.name, uploaded_file, uploaded_file.type)})
